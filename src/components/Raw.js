@@ -52,13 +52,13 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
       },
 
       getTemplateFromEl(sandboxEl) {
+        console.log('sandbox', sandboxEl);
         return sandboxEl.innerHTML;
       },
 
       getChildrenSelector() {
         return '*';
       },
-
 
       init() {
         coreMjmlView.init.call(this);

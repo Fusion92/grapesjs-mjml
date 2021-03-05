@@ -55,7 +55,6 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
       getChildrenSelector() {
         return 'table > tbody > tr > td';
       },
-
       init() {
         coreMjmlView.init.call(this);
         this.listenTo(this.model.get('components'), 'add remove', this.render);

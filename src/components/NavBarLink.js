@@ -21,7 +21,10 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
         ],
         'style-default': {
           'font-size': '13px',
-          'padding': '25px 10px 25px 10px',
+          'padding-top': '10px',
+          'padding-bottom': '10px',
+          'padding-left': '25px',
+          'padding-right': '25px',
           'text-transform': 'uppercase',
         },
         traits: ['href'],

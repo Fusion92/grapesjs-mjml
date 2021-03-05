@@ -39,7 +39,13 @@ export default (editor, opt = {}) => {
             { value: 'middle' },
             { value: 'bottom' },
           ]
-        }],
+        },
+        {
+          property: 'inner-padding',
+          label: 'Inner Padding',
+          detached: true,
+        }
+      ],
       }, {
         name: 'Typography',
         open: false,
