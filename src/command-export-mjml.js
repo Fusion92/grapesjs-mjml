@@ -55,6 +55,7 @@ export default (editor, opt = {}) => {
     },
 
     run(editor, sender = {}) {
+      console.log('im here')
       const modal = editor.Modal;
       modal.setTitle(editor.I18n.t('grapesjs-mjml.panels.export.title'));
       modal.setContent('');

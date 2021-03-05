@@ -66,7 +66,7 @@ export default (editor, opt = {}) => {
 
   bm.add('mj-social-group', {
     label: editor.I18n.t('grapesjs-mjml.components.names.socialGroup'),
-    content: `<mj-social font-size="12px" icon-size="24px" border-radius="12px" mode="horizontal">
+    content: `<mj-social>
         <mj-social-element name="facebook"></mj-social-element>
         <mj-social-element name="google"></mj-social-element>
         <mj-social-element name="twitter"></mj-social-element>
@@ -124,17 +124,12 @@ export default (editor, opt = {}) => {
 
   bm.add('mj-wrapper', {
     label: editor.I18n.t('grapesjs-mjml.components.names.wrapper'),
-    content: `<mj-wrapper border="1px solid #000000" padding="50px 30px">
-    <mj-section border-top="1px solid #aaaaaa" border-left="1px solid #aaaaaa" border-right="1px solid #aaaaaa" padding="20px">
+    content: `<mj-wrapper>
+    <mj-section>
       <mj-column>
-        <mj-image padding="0" src="http://placehold.it/350x250/78c5d6/fff" />
-      </mj-column>
-    </mj-section>
-    <mj-section border-left="1px solid #aaaaaa" border-right="1px solid #aaaaaa" padding="20px" border-bottom="1px solid #aaaaaa">
-      <mj-column border="1px solid #dddddd">
-        <mj-text padding="20px"> First line of text </mj-text>
-        <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey" padding="0 20px" />
-        <mj-text padding="20px"> Second line of text </mj-text>
+        <mj-text> First line of text </mj-text>
+        <mj-divider />
+        <mj-text> Second line of text </mj-text>
       </mj-column>
     </mj-section>
   </mj-wrapper>`,

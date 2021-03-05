@@ -13,6 +13,19 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
         name: editor.I18n.t('grapesjs-mjml.components.names.wrapper'),
         draggable: '[data-gjs-type=mj-body]',
         droppable: '[data-gjs-type=mj-section]',
+        stylable: [
+          'background-color', 'background-position', 'background-position-x', 'background-position-y',
+          'background-repeat', 'background-size', 'background-url', 
+          'padding', 'padding-top', 'padding-left', 'padding-right', 'padding-bottom',
+          'border', 'border-bottom', 'border-left', 'border-radius', 'border-right', 'border-top',
+          'text-align'
+          ],
+        'style-default': {
+          'padding-top': '10px',
+         'padding-bottom': '10px',
+         'padding-left': '25px',
+         'padding-right': '25px',
+        },
       },
     },
 
