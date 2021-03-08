@@ -38,6 +38,13 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
           'line-height': '22px',
           'align': 'left',
         },
+        traits: [
+          {
+            type: 'text',
+            label: 'css-class ',
+            name: 'css-class',
+          }
+        ]
       },
     },
 
