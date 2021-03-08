@@ -1,4 +1,5 @@
 import { mjmlConvert } from './components/utils.js';
+const juice = require('juice');
 
 export default (editor, opt = {}) => {
   const config = editor.getConfig();
@@ -55,11 +56,13 @@ export default (editor, opt = {}) => {
     },
 
     run(editor, sender = {}) {
-      console.log('im here')
       const modal = editor.Modal;
       modal.setTitle(editor.I18n.t('grapesjs-mjml.panels.export.title'));
       modal.setContent('');
       modal.setContent(container);
+
+      const edcss = editor.getCss();
+      console.log('edcss', edcss);
 
       if (!mjmlCode) {
         const codeViewer = this.buildEditor('MJML');
@@ -75,6 +78,14 @@ export default (editor, opt = {}) => {
       modal.open();
 
       if (mjmlCode) {
+        const edhtml = editor.getHtml();
+        // console.log('edhtml', typeof edhtml);
+        let edcss = editor.getCss({avoidProtected: true});
+        edcss = edcss.replace(/(body.?\{.+?\})/g, '')
+        .replace(/(p.?\{.+?\})/g, '')
+        .replace(/(img.?\{.+?\})/g, '')
+        .replace(/(table[\s\S]+?\{.+?\})/g, '');
+        console.log('ed css', edcss);
         mjmlCode.setContent(opt.preMjml + editor.getHtml() + opt.postMjml);
         //mjmlCode.editor.setOption('lineWrapping', 1);
         mjmlCode.editor.refresh();

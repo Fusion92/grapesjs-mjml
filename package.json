@@ -27,6 +27,7 @@
   "author": "Artur Arseniev",
   "license": "BSD-3-Clause",
   "dependencies": {
+    "juice": "^7.0.0",
     "mjml-browser": "^4.8.1"
   },
   "devDependencies": {
