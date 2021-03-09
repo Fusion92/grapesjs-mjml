@@ -15,8 +15,8 @@ export default (editor, opt = {}) => {
     theme: opt.codeViewerTheme,
   });
 
-  const getMjml = () => {
-    const mjml = opt.preMjml + editor.getHtml() + opt.postMjml;
+  const getMjml = ( html = editor.getHtml() ) => {
+    const mjml = opt.preMjml + html + opt.postMjml;
     return mjmlConvert(mjml, opt.fonts);
   };
 
@@ -61,8 +61,14 @@ export default (editor, opt = {}) => {
       modal.setContent('');
       modal.setContent(container);
 
-      const edcss = editor.getCss();
-      console.log('edcss', edcss);
+      const edhtml = editor.getHtml();
+      console.log('edhtml', edhtml);
+      let edcss = editor.getCss({avoidProtected: true});
+      edcss = edcss.replace(/(body.?\{.+?\})/g, '')
+      .replace(/(p.?\{.+?\})/g, '')
+      .replace(/(img.?\{.+?\})/g, '')
+      .replace(/(table[\s\S]+?\{.+?\})/g, '');
+      let upHtml = editor.getHtml().replace(/(\<\/mj-style\>)/, `$1 <mj-style inline="inline" >${edcss}</mj-style>`);
 
       if (!mjmlCode) {
         const codeViewer = this.buildEditor('MJML');
@@ -78,21 +84,15 @@ export default (editor, opt = {}) => {
       modal.open();
 
       if (mjmlCode) {
-        const edhtml = editor.getHtml();
-        // console.log('edhtml', typeof edhtml);
-        let edcss = editor.getCss({avoidProtected: true});
-        edcss = edcss.replace(/(body.?\{.+?\})/g, '')
-        .replace(/(p.?\{.+?\})/g, '')
-        .replace(/(img.?\{.+?\})/g, '')
-        .replace(/(table[\s\S]+?\{.+?\})/g, '');
-        console.log('ed css', edcss);
-        mjmlCode.setContent(opt.preMjml + editor.getHtml() + opt.postMjml);
+
+        mjmlCode.setContent(opt.preMjml + upHtml + opt.postMjml);
         //mjmlCode.editor.setOption('lineWrapping', 1);
         mjmlCode.editor.refresh();
       }
 
       if (htmlCode) {
-        const mjml = getMjml();
+        console.log('pre html', upHtml);
+        const mjml = getMjml(upHtml);
         if (mjml.errors.length) {
           mjml.errors.forEach((err) => {
             console.warn(err.formattedMessage);

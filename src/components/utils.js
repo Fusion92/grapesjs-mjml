@@ -13,6 +13,7 @@ export function mjmlConvert (mjml, fonts) {
   if (fonts && (Object.keys(fonts).length > 0 && fonts.constructor === Object)) {
     options.fonts = fonts;
   }
+  console.log('mjml in here', mjml);
 
   return mjml2html(mjml, options);
 }
