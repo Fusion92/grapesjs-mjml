@@ -9,7 +9,8 @@ export default (editor, { dc }) => {
     'mj-style',
     'mj-font',
     'mj-title',
-    'mj-raw'
+    'mj-raw',
+    'note'
   ].map(tag => `[data-gjs-type=${tag}]`).join(', ');
 
   dc.addType(type, {

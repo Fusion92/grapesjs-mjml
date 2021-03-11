@@ -137,39 +137,22 @@ export default (editor, opt = {}) => {
     ...allBlocks,
   });
 
-  bm.add('start-section-comment', {
-    label: 'Start Section Comment',
-    content: `<mj-raw>
-    <!-- ******************************************** -->
-    <!-- ************* START: Section *************** -->
-    <!-- VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV -->
-    </mj-raw>`,
-    attributes: { class: 'fa fa-html5' },
-
+  bm.add('note', {
+    label: "Note",
+    content: `<note>I'm some sort of note. Looky at me</note>`,
+    attributes: { class: 'fa fa-sticky-note' },
     ...allBlocks,
-  });
+  })
 
-  bm.add('end-section-comment', {
-    label: 'End Section Comment',
-    content: `<mj-raw>
-    <!-- ᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱ -->
-    <!-- ************* END: Section ***************** -->
-    <!-- ******************************************** -->
-    </mj-raw>`,
-    attributes: { class: 'fa fa-html5' },
 
-    ...allBlocks,
-  });
+  // bm.add('mj-raw', {
+  //   label: editor.I18n.t('grapesjs-mjml.components.names.raw'),
+  //   content: `<mj-raw>
+  //     <!--- commento --->
+  //   </mj-raw>`,
+  //   attributes: { class: 'fa fa-html5' },
 
-  bm.add('mj-raw', {
-    label: editor.I18n.t('grapesjs-mjml.components.names.raw'),
-    content: `<mj-raw>
-      <!--- commento --->
-    </mj-raw>`,
-    attributes: { class: 'fa fa-html5' },
-
-    ...allBlocks,
-  });
-
+  //   ...allBlocks,
+  // });
 
 };

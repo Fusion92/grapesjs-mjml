@@ -19,6 +19,7 @@ import loadNavBar from './NavBar';
 import loadNavBarLink from './NavBarLink';
 import loadHero from './Hero';
 import loadRaw from './Raw';
+import loadNote from './Note';
 
 export default (editor, opt = {}) => {
   let domc = editor.DomComponents;
@@ -285,4 +286,5 @@ export default (editor, opt = {}) => {
   loadNavBarLink(editor, compOpts);
   loadHero(editor, compOpts);
   loadRaw(editor, compOpts);
+  loadNote(editor, compOpts);
 };

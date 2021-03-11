@@ -48,7 +48,7 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
             start: `<mjml><mj-body>`,
             end: `</mj-body></mjml>`,
           };
-        }
+        } 
       },
 
       getTemplateFromEl(sandboxEl) {

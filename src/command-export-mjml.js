@@ -61,14 +61,13 @@ export default (editor, opt = {}) => {
       modal.setContent('');
       modal.setContent(container);
 
-      const edhtml = editor.getHtml();
-      console.log('edhtml', edhtml);
+      const edhtml = editor.getHtml().replace(/(\<note\>)/g, '<!-- ').replace(/(\<\/note\>)/g, ' -->');
       let edcss = editor.getCss({avoidProtected: true});
       edcss = edcss.replace(/(body.?\{.+?\})/g, '')
       .replace(/(p.?\{.+?\})/g, '')
       .replace(/(img.?\{.+?\})/g, '')
       .replace(/(table[\s\S]+?\{.+?\})/g, '');
-      let upHtml = editor.getHtml().replace(/(\<\/mj-style\>)/, `$1 <mj-style inline="inline" >${edcss}</mj-style>`);
+      let upHtml = edhtml.replace(/(\<\/mj-style\>)/, `$1 <mj-style inline="inline" >${edcss}</mj-style>`);
 
       if (!mjmlCode) {
         const codeViewer = this.buildEditor('MJML');
@@ -91,7 +90,6 @@ export default (editor, opt = {}) => {
       }
 
       if (htmlCode) {
-        console.log('pre html', upHtml);
         const mjml = getMjml(upHtml);
         if (mjml.errors.length) {
           mjml.errors.forEach((err) => {
