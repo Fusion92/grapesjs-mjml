@@ -73,7 +73,7 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
       ...coreMjmlView,
       tagName: "div",
       attributes: {
-        style: "pointer-events: all; background-color: #ffbcf1; color: #fff; font-family: sans-serif; text-align: center; font-size: 11px; padding: 5px 10px; margin: 2px 0; ",
+        style: "pointer-events: all; color: blue;",
         "data-type": "note",
       },
 
@@ -118,16 +118,18 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
         this.listenTo(this.model, 'change:attributes change:src', this.rerender);
   
         const cm = editor.Commands;
-        cm.add("border-open", (editor) => {
-          editor.on("run:core:component-outline", () => {
+        cm.add("show-notes", (editor) => {
+          editor.on("run:trigger-notes", () => {
+            console.log('triggered', this)
             this.el.style.display = 'block';
           });
-          editor.on("stop:core:component-outline", () => {
+          editor.on("stop:trigger-notes", () => {
+            console.log('untriggered', this);
             this.el.style.display = 'none'
           });
         });
 
-        cm.run("border-open");
+        cm.run("show-notes");
       },
     },
   });

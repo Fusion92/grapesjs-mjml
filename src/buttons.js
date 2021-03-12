@@ -19,6 +19,14 @@ export default (editor) => {
     command: 'mjml-import',
     attributes: { [tltAttr]: editor.I18n.t('grapesjs-mjml.panels.buttons.import') }
   });
+  
+  pnm.addButton('options', {
+    id: 'trigger-notes',
+    className: 'fa fa-sticky-note-o',
+    command: 'trigger-notes',
+    attributes: { [tltAttr]: 'show notes' }
+  });
+
 
   if (optPanel) {
     // Fix tooltip position

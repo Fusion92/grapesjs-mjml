@@ -6,6 +6,10 @@ export default (editor, opt = {}) => {
   const cmd = editor.Commands;
   const exportName = opt.overwriteExport ? 'export-template' : 'mjml-export';
 
+  cmd.add('trigger-notes', {
+    run(){},
+    stop(){}
+  })
   cmd.add('mjml-import', importCommand(editor, opt));
   cmd.add('mjml-import:change', {
     run() {
