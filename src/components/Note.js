@@ -73,7 +73,7 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
       ...coreMjmlView,
       tagName: "div",
       attributes: {
-        style: "pointer-events: all; color: blue;",
+        style: "pointer-events: all; background-color: #ffbcf1; color: #fff; font-family: sans-serif; text-align: center; font-size: 11px; padding: 5px 10px; margin: 2px 0;",
         "data-type": "note",
       },
 
@@ -120,12 +120,10 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
         const cm = editor.Commands;
         cm.add("show-notes", (editor) => {
           editor.on("run:trigger-notes", () => {
-            console.log('triggered', this)
             this.el.style.display = 'block';
           });
           editor.on("stop:trigger-notes", () => {
-            console.log('untriggered', this);
-            this.el.style.display = 'none'
+            this.el.style.display = 'none';
           });
         });
 

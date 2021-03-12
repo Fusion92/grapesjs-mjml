@@ -24,7 +24,8 @@ export default (editor) => {
     id: 'trigger-notes',
     className: 'fa fa-sticky-note-o',
     command: 'trigger-notes',
-    attributes: { [tltAttr]: 'show notes' }
+    attributes: { [tltAttr]: 'show notes' },
+    active: true
   });
 
 
