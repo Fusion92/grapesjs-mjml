@@ -60,8 +60,7 @@ export default (editor, opt = {}) => {
       modal.setTitle(editor.I18n.t('grapesjs-mjml.panels.export.title'));
       modal.setContent('');
       modal.setContent(container);
-      const edhtml = editor.getHtml({});
-      // .replace(/(\<note\>)/g, '<!-- ').replace(/(\<\/note\>)/g, ' -->');
+      const edhtml = editor.getHtml();
       let edcss = editor.getCss({avoidProtected: true});
       edcss = edcss.replace(/(body.?\{.+?\})/g, '')
       .replace(/(p.?\{.+?\})/g, '')
