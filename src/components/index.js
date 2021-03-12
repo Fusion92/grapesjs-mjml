@@ -59,11 +59,11 @@ export default (editor, opt = {}) => {
     },
 
     handleAttributeChange() {
-      this.set('style', this.get('attributes'));
+      this.set('attibutes', this.get('attributes'));
     },
 
     handleStyleChange() {
-      this.set('attributes', this.get('style'));
+      this.set('style', this.get('style'));
     },
 
 

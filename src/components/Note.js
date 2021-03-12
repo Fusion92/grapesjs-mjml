@@ -22,18 +22,58 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
         name: type,
         draggable: "[data-gjs-type=mj-body], [data-gjs-type=mj-head]",
         stylable: false,
-        "style-default": {},
-        style: {},
-        attributes: {},
         highlightable: true,
+        traits: [
+          {
+            type: 'select', // Type of the trait
+            label: 'Type', // The label you will see in Settings
+            name: 'kind', // The name of the attribute/property to use on component
+            // default: 'start',
+            options: [
+              { id: 'start', name: 'Start',},
+              { id: 'end', name: 'End'},
+              { id: 'simple', name: 'Simple'},
+            ]
+          }
+        ],
+        attributes: {
+          kind: 'start'
+        }
       },
+    toHTML() {
+      const bar = "<!-- ******************************************** -->",
+            arrowsUp = "<!-- ᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱ -->",
+            arrowsDown = "<!-- VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV -->",
+            cmtStart = "<!-- ",
+            cmtEnd = " -->",
+            halfBar = " ** ",
+            nl = '\n';
+
+      let kind = this.get('attributes').kind,
+          content = "",
+          code = "";
+
+            this.get('components').each((model) => {
+              content += model.toHTML();
+            });
+
+             if( kind == 'start' ){
+              code = bar + nl + cmtStart + halfBar + content + halfBar + cmtEnd + nl + arrowsDown;
+             } else if ( kind == 'end' ){
+              code = arrowsUp + nl + cmtStart + halfBar + content + halfBar + cmtEnd + nl  + bar;
+             } else {
+               code = cmtStart + content + cmtEnd;
+             }
+             return code;
+
+    },
     },
 
     view: {
       ...coreMjmlView,
       tagName: "div",
       attributes: {
-        style: "pointer-events: all; color: blue; display: none;",
+        style: "pointer-events: all; color: blue;",
         "data-type": "note",
       },
 
@@ -74,15 +114,15 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
       },
 
       init() {
+        this.stopListening(this.model, 'change:style');
+        this.listenTo(this.model, 'change:attributes change:src', this.rerender);
+  
         const cm = editor.Commands;
         cm.add("border-open", (editor) => {
-          const raw = this;
           editor.on("run:core:component-outline", () => {
-            console.log("border open now", raw);
             this.el.style.display = 'block';
           });
           editor.on("stop:core:component-outline", () => {
-            console.log("border closed now");
             this.el.style.display = 'none'
           });
         });
