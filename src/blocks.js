@@ -144,34 +144,10 @@ export default (editor, opt = {}) => {
     ...allBlocks,
   })
 
-  // bm.add('start-section-comment', {
-  //   label: 'Start Section Comment',
-  //   content: `<mj-raw>
-  //   <!-- ******************************************** -->
-  //   <!-- ************* START: Section *************** -->
-  //   <!-- VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV -->
-  //   </mj-raw>`,
-  //   attributes: { class: 'fa fa-html5' },
-
-  //   ...allBlocks,
-  // });
-
-  // bm.add('end-section-comment', {
-  //   label: 'End Section Comment',
-  //   content: `<mj-raw>
-  //   <!-- ᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱᐱ -->
-  //   <!-- ************* END: Section ***************** -->
-  //   <!-- ******************************************** -->
-  //   </mj-raw>`,
-  //   attributes: { class: 'fa fa-html5' },
-
-  //   ...allBlocks,
-  // });
-
   // bm.add('mj-raw', {
   //   label: editor.I18n.t('grapesjs-mjml.components.names.raw'),
   //   content: `<mj-raw>
-  //     <!--- commento --->
+  //     <!--- Custom Code Must Be Made to the Block --->
   //   </mj-raw>`,
   //   attributes: { class: 'fa fa-html5' },
 

@@ -73,7 +73,7 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
       ...coreMjmlView,
       tagName: "div",
       attributes: {
-        style: "pointer-events: all; color: blue;",
+        style: "pointer-events: all; background-color: #ffbcf1; color: #fff; font-family: sans-serif; text-align: center; font-size: 11px; padding: 5px 10px; margin: 2px 0; ",
         "data-type": "note",
       },
 
