@@ -43,19 +43,64 @@
             font-size: inherit !important; font-family: inherit !important;
             font-weight: inherit !important; line-height: inherit !important; }
             /* Wrap anything you don't want blue links and underline with
-            <span class="address"></span>
-            */ .address a { color: inherit !important; text-decoration: inherit
+            */ .blue-blocker a { color: inherit !important; text-decoration: inherit
             !important; }
           </mj-style>
         </mj-head>
-        <mj-body>
-          <!-- Company Header -->
-          <mj-section background-color="#f0f0f0">
-            <mj-column>
-              <mj-text>A first line of text</mj-text>
-              <mj-spacer height="50px" />
+        <mj-body background-color="#fff">
+
+          <mj-section>
+            <mj-column padding-top="10px" padding-bottom="10px" width="100%">
+              <mj-text align="center" font-size="32px" font-weight="bold">
+                  Boilerplate Email
+              </mj-text>
             </mj-column>
           </mj-section>
+      
+          <mj-section>
+            <mj-column padding="20px" width="100%">
+            <mj-text align="center" font-family="Arial, Helvetica, sans-serif">
+                <p>
+                Spiff up your work with our random beer Lorem Ipsum generator. Designs can be incomplete without text to fill them and normal placeholder text (filler text) can be boring. Give your designs that extra buzz by using something thats been around as long as people have. Beer! 
+                </p>
+            </mj-text>
+            </mj-column>
+          </mj-section>
+      
+          <mj-section>
+            <mj-column width="100%">
+              <mj-button href="http://fakesite.com" background-color="#F26A3E" padding-bottom="40px" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="18px" inner-padding="20px"  >
+                Standard CTA Button
+              </mj-button>
+            </mj-column>
+          </mj-section>
+      
+          <mj-section>
+            <mj-column width="100%">
+              <mj-divider border-width="20px" border-color="#284226" />
+            </mj-column>
+          </mj-section>
+      
+          <mj-wrapper background-color="#EFEFEF">
+            <mj-section>
+              <mj-column width="100%">
+                <mj-text css-class="blue-blocker" align="left" padding="30px 30px 20px" font-size="10px">
+                  <p>
+                    &dagger; Offer valid for new patients only. Please mention the code or show this email at time of service. May not be combined with any other offers.
+                    Not redeemable for cash. Offer expires on %%offer_expire%%.
+                  </p>
+                  <p>Copyright &copy; %%current_year%% %%clinic_name%%. All rights reserved.</p>
+                  <p>
+                      %%clinic_name%%<br />
+                      %%clinic_address%%<br />
+                      %%clinic_city%%, %%clinic_state%%, %%clinic_zip%%<br />
+                      %%clinic_phone%%<br />
+                  </p>
+                </mj-text>
+              </mj-column>
+            </mj-section>
+          </mj-wrapper>
+      
         </mj-body>
       </mjml>
     </div>

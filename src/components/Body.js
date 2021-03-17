@@ -18,7 +18,7 @@ export default (editor, { dc, coreMjmlModel, coreMjmlView }) => {
         draggable: false,
         copyable: false,
         removable: false,
-        'style-default': { width: '600px' },
+        'style-default': { width: '640px' },
         stylable: [
           // Currently the UX sucks too much with the heavy rendering approach
           'width',
