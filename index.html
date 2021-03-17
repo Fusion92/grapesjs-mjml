@@ -38,11 +38,14 @@
           <mj-title>[Page Title]</mj-title>
           <mj-preview>[Email preview text here]</mj-preview>
           <mj-style>
-            a[x-apple-data-detectors]
+            /* Dealing with Pesky Apple blue links */ a[x-apple-data-detectors]
             { color: inherit !important; text-decoration: none !important;
             font-size: inherit !important; font-family: inherit !important;
             font-weight: inherit !important; line-height: inherit !important; }
-            .blue-blocker a { color: inherit; text-decoration: inherit; }
+            /* Wrap anything you don't want blue links and underline with
+            <span class="address"></span>
+            */ .address a { color: inherit !important; text-decoration: inherit
+            !important; }
           </mj-style>
         </mj-head>
         <mj-body>
